@@ -582,7 +582,7 @@
             </div>
         </section>
 
-        <!-- אזור תגובות קוראים מחובר למייל -->
+<!-- אזור תגובות קוראים מחובר למייל -->
         <section class="comments-section">
             <h2>תגובות והתרשמויות קוראים</h2>
             <div class="notice-box">
@@ -592,30 +592,35 @@
                 <input type="text" id="commentName" placeholder="השם שלך">
                 <input type="email" id="commentEmail" placeholder="כתובת המייל שלך">
                 <textarea id="commentText" rows="4" placeholder="כתוב תגובה, הערה או שאלה על המחקר..."></textarea>
+                <!-- כאן מדביקים את הכפתור -->
                 <button type="button" class="btn" onclick="sendCommentToEmail()" style="margin-top: 0; cursor: pointer;">שליחת תגובה לאישור במייל</button>
             </div>
         </section>
 
     </main>
 
-   <footer>
+    <footer>
         <p>כל הזכויות שמורות &copy; 2026 | יוסף רוזנבוים | מחקרים תורניים</p>
     </footer>
 
-   <script>
-    function sendCommentToEmail() {
-        const name = document.getElementById('commentName').value.trim();
-        const email = document.getElementById('commentEmail').value.trim();
-        const text = document.getElementById('commentText').value.trim();
+    <!-- כאן למטה, ממש לפני סגירת ה-body, מדביקים את קוד ה-JavaScript -->
+    <script>
+        function sendCommentToEmail() {
+            const name = document.getElementById('commentName').value.trim();
+            const email = document.getElementById('commentEmail').value.trim();
+            const text = document.getElementById('commentText').value.trim();
 
-        if(name === "" || email === "" || text === "") {
-            alert("אנא מלא את כל השדות (שם, מייל ותוכן התגובה).");
-            return;
+            if(name === "" || email === "" || text === "") {
+                alert("אנא מלא את כל השדות (שם, מייל ותוכן התגובה).");
+                return;
+            }
+
+            const subject = encodeURIComponent("תגובה חדשה למחקר מאת " + name);
+            const body = encodeURIComponent("שם המגיב: " + name + "\nמייל המגיב: " + email + "\n\nתוכן התגובה:\n" + text);
+
+            window.location.href = `mailto:kopolovi000@gmail.com?subject=${subject}&body=${body}`;
         }
+    </script>
 
-        const subject = encodeURIComponent("תגובה חדשה למחקר מאת " + name);
-        const body = encodeURIComponent("שם המגיב: " + name + "\nמייל המגיב: " + email + "\n\nתוכן התגובה:\n" + text);
-
-        window.location.href = `mailto:kopolovi000@gmail.com?subject=${subject}&body=${body}`;
-    }
-</script>
+</body>
+</html>
