@@ -612,15 +612,12 @@
                 alert("אנא מלא את כל השדות (שם, מייל ותוכן התגובה).");
                 return;
             }
-
-            const subject = encodeURIComponent("תגובה חדשה למחקר מאת " + name);
+const subject = encodeURIComponent("תגובה חדשה למחקר מאת " + name);
             const body = encodeURIComponent("שם המגיב: " + name + "\nמייל המגיב: " + email + "\n\nתוכן התגובה:\n" + text);
 
             window.location.href = `mailto:kopolovi000@gmail.com?subject=${subject}&body=${body}`;
         }
     </script>
-
-</body>
 
 </body>
 </html>
