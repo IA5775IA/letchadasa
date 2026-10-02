@@ -611,14 +611,9 @@
 
     <script>
         function sendCommentToEmail() {
-            const name = document.getElementById('commentName').value.trim();
-            const email = document.getElementById('commentEmail').value.trim();
-            const text = document.getElementById('commentText').value.trim();
-
-            if(name === "" || email === "" || text === "") {
-                alert("אנא מלא את כל השדות (שם, מייל ותוכן התגובה).");
-                return;
-            }
+            const name = document.getElementById('commentName').value.trim() || "ללא שם";
+            const email = document.getElementById('commentEmail').value.trim() || "ללא מייל";
+            const text = document.getElementById('commentText').value.trim() || "ללא תוכן";
 
             const subject = encodeURIComponent("תגובה חדשה למחקר מאת " + name);
             const body = encodeURIComponent("שם המגיב: " + name + "\nמייל המגיב: " + email + "\n\nתוכן התגובה:\n" + text);
@@ -626,6 +621,3 @@
             window.location.href = `mailto:kopolovi000@gmail.com?subject=${subject}&body=${body}`;
         }
     </script>
-
-</body>
-</html>
