@@ -588,8 +588,7 @@
                 <iframe src="סודו_של_הרעיא_מהימנא.pdf" width="100%" height="600px" style="border: none; border-radius: 8px;" title="מצגת המחקר"></iframe>
             </div>
         </section>
-
-        <!-- אזור תגובות קוראים מחובר למייל -->
+<!-- אזור תגובות קוראים מחובר למייל -->
         <section class="comments-section">
             <h2>תגובות והתרשמויות קוראים</h2>
             <div class="notice-box">
@@ -599,25 +598,8 @@
                 <input type="text" id="commentName" placeholder="השם שלך">
                 <input type="email" id="commentEmail" placeholder="כתובת המייל שלך">
                 <textarea id="commentText" rows="4" placeholder="כתוב תגובה, הערה או שאלה על המחקר..."></textarea>
-                <button type="button" class="btn" onclick="sendCommentToEmail()" style="margin-top: 0; cursor: pointer;">שליחת תגובה לאישור במייל</button>
+                
+                <!-- כפתור שהוא בעצם קישור ישיר שמפעיל את המייל -->
+                <a href="mailto:kopolovi000@gmail.com?subject=תגובה%20למחקר&body=שלום%20יוסף," class="btn" style="text-align: center; display: block; text-decoration: none; margin-top: 1.5rem; cursor: pointer;">שליחת תגובה לאישור במייל</a>
             </div>
         </section>
-
-    </main>
-
-    <footer>
-        <p>כל הזכויות שמורות &copy; 2026 | יוסף רוזנבוים | מחקרים תורניים</p>
-    </footer>
-
-    <script>
-        function sendCommentToEmail() {
-            const name = document.getElementById('commentName').value.trim() || "ללא שם";
-            const email = document.getElementById('commentEmail').value.trim() || "ללא מייל";
-            const text = document.getElementById('commentText').value.trim() || "ללא תוכן";
-
-            const subject = encodeURIComponent("תגובה חדשה למחקר מאת " + name);
-            const body = encodeURIComponent("שם המגיב: " + name + "\nמייל המגיב: " + email + "\n\nתוכן התגובה:\n" + text);
-
-            window.location.href = `mailto:kopolovi000@gmail.com?subject=${subject}&body=${body}`;
-        }
-    </script>
